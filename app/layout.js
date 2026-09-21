@@ -1,4 +1,7 @@
-import { cookies, headers } from 'next/headers';
+// import { cookies, headers } from 'next/headers';
+// import { END } from 'redux-saga';
+
+// import Providers from '@/store/Providers';
 
 export const metadata = {
   title: "Create Next App",
@@ -20,10 +23,13 @@ const RootLayout = async ({ children }) => {
   return (
     <html
       lang="ko-KR"
-      suppressHydrationWarning
       // className={}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        {/* <Providers preloadedState={{}}>
+        </Providers> */}
+      </body>
     </html>
   );
 }

@@ -2,16 +2,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from '@/reducers';
 import rootSaga from '@/sagas';
-import { isDev, isServer } from '@/config';
+// import { isDev, isServer } from '@/config';
 
-const loggerMiddleware = ({ dispatch, getState }) => (next) => (action) => {
-  if (typeof action === 'function') {
-    // console.log('[Logger] thunk-like: ', action);
-    return action(dispatch, getState);
-  }
-  // console.log('[Logger] dispatch: ', action);
-  return next(action);
-};
+// const loggerMiddleware = ({ dispatch, getState }) => (next) => (action) => {
+//   if (typeof action === 'function') {
+//     // console.log('[Logger] thunk-like: ', action);
+//     return action(dispatch, getState);
+//   }
+//   // console.log('[Logger] dispatch: ', action);
+//   return next(action);
+// };
 
 const createStore = (preloadedState = {}) => {
   const sagaMiddleware = createSagaMiddleware();
@@ -23,14 +23,14 @@ const createStore = (preloadedState = {}) => {
     },
   })
     .concat(
-      ...(isDev ? [loggerMiddleware] : []),
+      // ...(isDev ? [loggerMiddleware] : []),
       sagaMiddleware,
     );
 
   const store = configureStore({
     reducer: rootReducer,
     middleware: middlewareEnhancer,
-    devTools: !isServer && isDev,
+    // devTools: !isServer && isDev,
     preloadedState,
   });
 
