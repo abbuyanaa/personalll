@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react'
+import React from 'react';
 
-const ForeignLanguageWeb = () => {
-  return (
-    <div></div>
-  )
-}
+import ForeignLanguageForm from '@/components/ForeignLanguage/ForeignLanguageForm';
+
+const ForeignLanguageWeb = () => (
+  <ForeignLanguageForm />
+);
 
 export default ForeignLanguageWeb;
